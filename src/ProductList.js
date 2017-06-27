@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Product from './Product';
-import Seed from './Seed';
+import { products } from './Seed';
+
 export default class ProductList extends Component {
   render() {
-    const product = Seed.products[0];
+    const product = products[0];
     return (
       <div className="ui unstackable items">
         <Product
