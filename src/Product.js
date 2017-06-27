@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
 
 export default class Product extends Component {
+  constructor(props) {
+      super(props);
+
+      this.handleUpVote = this.handleUpVote.bind(this);
+  }
+
+  handleUpVote() {
+      this.props.onVote(this.props.id);
+  }
+
   render() {
       return (
         <div className='item'>
           <div className='image'>
-            <img src={this.props.productImageUrl} />
+            <img alt='' src={this.props.productImageUrl} />
           </div>
           <div className='middle aligned content'>
             <div className='header'>
-              <a>
+              <a onClick={this.handleUpVote}>
                 <i className='large caret up icon' />
               </a>
               {this.props.votes}
@@ -27,6 +37,7 @@ export default class Product extends Component {
               <img
                 className='ui avatar image'
                 src={this.props.submitterAvatarUrl}
+                alt=''
               />
             </div>
           </div>

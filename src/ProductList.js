@@ -3,6 +3,10 @@ import Product from './Product';
 import { products } from './Seed';
 
 export default class ProductList extends Component {
+  handleProductUpVote(productId) {
+    console.log(productId + ' was upvoted.');
+  }
+
   render() {
     const sortedProducts = products.sort((a, b) => (
       b.votes - a.votes
@@ -17,6 +21,7 @@ export default class ProductList extends Component {
         votes={product.votes}
         submitterAvatarUrl={product.submitterAvatarUrl}
         productImageUrl={product.productImageUrl}
+        onVote={this.handleProductUpVote}
       />
     ));
     return (
